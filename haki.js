@@ -1,4 +1,4 @@
-
+////// Probe
 
 /*const {
   default: makeWASocket,
@@ -418,11 +418,14 @@ async function Abhiy() {
           );
         }
 
-       const sudoUser = config.SUDO ? config.SUDO.split(",").map(s => s.trim()) : [];
+        const sudoUser = config.SUDO.split(",");
         events.commands.map(async (command) => {
-          if (command.fromMe && (!sudoUser.includes(msg.sender?.split("@")[0]) && !msg.isSelf)) {
+          if (
+            command.fromMe &&
+            (!sudoUser.includes(msg.sender?.split("@")[0]) && !msg.isSelf)
+          )
             return;
-          }
+
           let comman;
           if (text_msg) {
             comman = text_msg.trim().split(/ +/)[0];
